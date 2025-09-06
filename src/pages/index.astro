@@ -1,25 +1,52 @@
 ---
 import '../styles/global.css';
+import Layout from '@/layouts/home.astro';
 // Component Imports
-import Button from '../components/Button.astro';
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+ } from '@/components/ui/card';
+ import { buttonVariants } from "@/components/ui/button";
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
-	</head>
-
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
-		</div>
-	</body>
-</html>
+<Layout>
+  <h1 class="text-5xl">Life on Cats?</h1>
+  <div class="md:grid md:grid-cols-2 md:gap-x-4 mt-6">
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-xl">要貓陪</CardTitle>
+        <CardDescription>
+          收集很多有貓的商品，比起加上貓，更喜歡是貓的模樣。其中有從旅行中探訪貓點蒐集來的，這些是我推的貓物。
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <CardAction>
+          <a href="https://meow.carrier.express" class={buttonVariants({ variant: "default", size: "default" })}>
+            去看看
+          </a>
+        </CardAction>
+      </CardContent>
+    </Card>
+    <Card className="mt-4 md:mt-0">
+      <CardHeader>
+        <CardTitle className="text-xl">Cat Spotting Guides</CardTitle>
+        <CardDescription>
+          Discover authentic travel experiences at some of the best cat spots, focusing on how to get to these destinations instead of just basic information.
+        </CardDescription>
+      </CardHeader>
+    <CardContent>
+      <CardAction>
+        <a href="https://goods.carrier.express" class={buttonVariants({ variant: "default", size: "default" })}>
+          Explore
+        </a>
+      </CardAction>
+    </CardContent>
+  </Card>
+    </Card>
+  </div>
+</Layout>
